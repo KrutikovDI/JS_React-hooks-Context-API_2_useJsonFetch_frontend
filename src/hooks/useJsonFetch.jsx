@@ -7,10 +7,11 @@ export const useJsonFetch = (url, opts='') => {
 
     useEffect(() => {
       const fetchData = async () => {
+        console.log(url)
         setLoading(true);
         try {
           const response = await fetch(url);
-          if (response.status != 'ok') {
+          if (response.status != 200) {
             throw new Error(response.statusText)
           }
           const data = await response.json()
